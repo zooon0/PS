@@ -9,7 +9,8 @@ int factorial(int n)
         x *= (i + 1);
     return x;
 }
-void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::list<int> &numList);
+void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::list<int> numList);
+
 int main()
 {
     int numberOfTestCase;
@@ -38,17 +39,12 @@ int main()
                 i.second = temp;
             }
         }
+		/*
         std::sort(isFriend.begin(), isFriend.end(), [](const std::pair<int, int> &lhs, const std::pair<int, int> &rhs) {
             return (lhs.first < rhs.first ? true : (lhs.second < rhs.second));
         });
-        std::cout << "List IS: ";
-        for (auto &p : numList)
-            std::cout << p << " ";
-        std::cout << std::endl;
-		std::cout << "Friend List Is: ";
-		for (auto &k : isFriend)	
-			std::cout << k.first << " " << k.second << "|";
-		std::cout << std::endl;
+		*/
+
         generateAllCase(n, isFriend, numList);
 
         printf("%d\n", possibleCase / factorial(n / 2));
@@ -56,7 +52,7 @@ int main()
     return 0;
 }
 
-void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::list<int> &numList)
+void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::list<int> numList)
 {
     std::vector<std::pair<int, int>>::iterator isFriendIter;
     if (n == 0)
@@ -75,18 +71,13 @@ void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::lis
                 {
                     int tempI = *i;
                     int tempJ = *j;
-                    i = numList.erase(i);
-                    j = numList.erase(j);
+    				j = numList.erase(j);
+			    	i = numList.erase(i);
+
                     generateAllCase(n - 2, isFriend, numList);
-                    std::cout << "i: " << tempI << " j: " << tempJ << std::endl;
-                    std::cout << "List IS: ";
-                    for (auto &p : numList)
-                        std::cout << p << " ";
-                    std::cout << std::endl;
-                    numList.insert(j, tempJ);
-                    numList.insert(i, tempI);
-                    i--;
-                    j--;
+
+				    i = numList.insert(i, tempI);
+				    j = numList.insert(j, tempJ);
                 }
             }
         }
