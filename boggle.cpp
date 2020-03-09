@@ -18,7 +18,7 @@ int main()
         {
             scanf("%s", gameBoard[j]);
         }
-    
+
         scanf("%d", &numberOfWord);
 
         for (int l = 0; l < numberOfWord; l++)
@@ -34,7 +34,7 @@ int main()
                     if (counter)
                         goto RETPOINT;
                 }
-RETPOINT:
+        RETPOINT:
             if (counter)
                 printf("%s YES\n", word);
             else
@@ -69,5 +69,5 @@ bool hasWord(int y, int x, char *word, char gameBoard[5][5], int position)
         }
     }
     else
-        return false; 
+        return false;
 }

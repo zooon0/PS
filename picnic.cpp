@@ -39,11 +39,11 @@ int main()
                 i.second = temp;
             }
         }
-		/*
+        /*
         std::sort(isFriend.begin(), isFriend.end(), [](const std::pair<int, int> &lhs, const std::pair<int, int> &rhs) {
             return (lhs.first < rhs.first ? true : (lhs.second < rhs.second));
         });
-		*/
+        */
 
         generateAllCase(n, isFriend, numList);
 
@@ -71,13 +71,13 @@ void generateAllCase(int n, std::vector<std::pair<int, int>> &isFriend, std::lis
                 {
                     int tempI = *i;
                     int tempJ = *j;
-    				j = numList.erase(j);
-			    	i = numList.erase(i);
+                    j = numList.erase(j);
+                    i = numList.erase(i);
 
                     generateAllCase(n - 2, isFriend, numList);
 
-				    i = numList.insert(i, tempI);
-				    j = numList.insert(j, tempJ);
+                    i = numList.insert(i, tempI);
+                    j = numList.insert(j, tempJ);
                 }
             }
         }

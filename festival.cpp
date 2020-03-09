@@ -8,7 +8,7 @@ int main()
 {
     int numberOfTestCase = 0;
     int numberOfDays = 0;
-    int numberOfTeams = 0; 
+    int numberOfTeams = 0;
     int temp = 0;
     double tempaverage = 0.0;
     vector<int> Price(0, 0);
@@ -25,24 +25,24 @@ int main()
             scanf("%d", &temp);
             Price.push_back(temp);
         }
-        
+
         for (size_t k = numberOfTeams; k <= numberOfDays; ++k)
         {
-            for (size_t j = 0; j <= numberOfDays - k; ++j) 
+            for (size_t j = 0; j <= numberOfDays - k; ++j)
             {
                 temp = 0;
                 for (size_t l = 0; l < k; ++l)
                     temp += Price[l + j];
 
-                tempaverage = temp / (double) k;
+                tempaverage = temp / (double)k;
                 if (tempaverage < min)
                     min = tempaverage;
             }
-        } 
+        }
         Answer.push_back(min);
     }
     for (auto &i : Answer)
         printf("%.8lf\n", i);
-     
+
     return 0;
 }

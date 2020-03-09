@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::vector;
 
 int sum(int);
