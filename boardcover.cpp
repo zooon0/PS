@@ -87,7 +87,7 @@ void solve(int gameBoard[20][20], int H, int W, int blank)
         {
             int i = firstCase.first;
             int j = firstCase.second;
-            //cout << "(i, j) = (" << i << ", " << j << ")\n";
+            // cout << "(i, j) = (" << i << ", " << j << ")\n";
             if (j + 1 < W && i + 1 < H && gameBoard[i][j + 1] == 0 && gameBoard[i + 1][j + 1] == 0)
             {
                 gameBoard[i][j] = gameBoard[i][j + 1] = gameBoard[i + 1][j + 1] = 1;

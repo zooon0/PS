@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 
@@ -23,19 +24,19 @@ int main()
 
         for (int l = 0; l < numberOfWord; l++)
         {
-            bool counter = false;
+            bool checker = false;
             for (int t = 0; t < 11; t++)
                 word[t] = '\0';
             scanf("%s", word);
             for (int j = 0; j < 5; ++j)
                 for (int k = 0; k < 5; ++k)
                 {
-                    counter = hasWord(j, k, word, gameBoard, 0);
-                    if (counter)
+                    checker = hasWord(j, k, word, gameBoard, 0);
+                    if (checker)
                         goto RETPOINT;
                 }
         RETPOINT:
-            if (counter)
+            if (checker)
                 printf("%s YES\n", word);
             else
                 printf("%s NO\n", word);
@@ -46,7 +47,7 @@ int main()
 
 bool hasWord(int y, int x, char *word, char gameBoard[5][5], int position)
 {
-    bool counter = false;
+    bool checker = false;
     if (word[position] == gameBoard[y][x])
     {
         if (position + 1 == strlen(word))
@@ -60,12 +61,12 @@ bool hasWord(int y, int x, char *word, char gameBoard[5][5], int position)
                         continue;
                     else
                     {
-                        counter = hasWord(y + i, x + j, word, gameBoard, position + 1);
-                        if (counter)
+                        checker = hasWord(y + i, x + j, word, gameBoard, position + 1);
+                        if (checker)
                             return true;
                     }
                 }
-            return counter;
+            return checker;
         }
     }
     else

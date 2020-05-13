@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <list>
+#include <utility>
+#include <vector>
 
 int possibleCase;
 
@@ -39,11 +43,9 @@ int main()
                 i.second = temp;
             }
         }
-        /*
         std::sort(isFriend.begin(), isFriend.end(), [](const std::pair<int, int> &lhs, const std::pair<int, int> &rhs) {
             return (lhs.first < rhs.first ? true : (lhs.second < rhs.second));
         });
-        */
 
         generateAllCase(n, isFriend, numList);
 
