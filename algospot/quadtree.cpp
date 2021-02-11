@@ -106,4 +106,5 @@ int main()
         printTree(reverse(root));
         cout << '\n';
     }
+    free(tree);
 }
