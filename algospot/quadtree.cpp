@@ -90,6 +90,21 @@ quadtree *reverse(quadtree *root)
     }
 }
 
+void freeTree(quadtree *root)
+{
+    if (root == nullptr)
+        free(root);
+    else
+    {
+        freeTree(root->leftbelow);
+        freeTree(root->leftupper);
+        freeTree(root->rightbelow);
+        freeTree(root->rightupper);
+        free(root);
+        return;
+    }
+}
+
 int main()
 {
     int C;
@@ -106,5 +121,5 @@ int main()
         printTree(reverse(root));
         cout << '\n';
     }
-    free(tree);
+    freeTree(root);
 }
